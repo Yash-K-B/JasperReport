@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.yash.JasperReport</id>
+    <name>Jasper Report</name>
+    <vendor email="yashwantkumar027@gmail.com">Yash-K-B</vendor>
+
+    <description><![CDATA[
+    This plugin will enable Jasper Report support within Intellij Idea.<br>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      Release 1.0.0: Initial release.<br>
+      - Enable syntax highlighting and code suggestion for jrxml files
+    ]]>
+    </change-notes>
+
+
+
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <fileType name="Jasper source file" implementationClass="com.yash.file.type.jrxml.JrxmlFileType"
+                  fieldName="INSTANCE" language="XML" extensions="jrxml"/>
+        <lang.parserDefinition language="Jrxml" implementationClass="com.yash.lang.jrxml.JrxmlParserDefinition"/>
+        <xml.schemaProvider implementation="com.yash.lang.jrxml.autocomplete.JrxmlSchemaProvider"/>
+    </extensions>
+
+
+
+    <actions>
+    </actions>
+</idea-plugin>
